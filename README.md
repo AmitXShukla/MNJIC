@@ -1,6 +1,6 @@
 <h4>MNJIC</h4>
-Angular Material and PHP MYSQL App<br>
-<h4>Objective:</h4><br>
+Angular Material and PHP MYSQL App
+<h4>Objective:</h4>
 In this Project, We will build an mobile App for one of our client MNJIC.<br>
 We will develop this app for Android devices and will register this on Google Play.
 <h4>Business Requirement:</h4>
@@ -23,7 +23,7 @@ if not, please visit
 <span style="color:green">ng -v</span> // show current Angular-Cli version<br>
 <span style="color:green">ng new MNJIC</span> // create a new ng app<br>
 <span style="color:green"> cd MNJIC</span><br>
-<h4> Clean up tasks:</h4><br>
+<h4> Clean up tasks:</h4>
 <span style="color:green">copy over favicon.ico in assets/icon directory</span><br>
 <span style="color:green">update index.html to reflect new favicon.ico changes</span><br>
 <span style="color:green">update polyfill.json</span><br> - In case of using web animations or if you are planning to support older browser versions.<br>
@@ -66,7 +66,7 @@ https://github.com/AmitXShukla/Angular-Material/blob/master/src/app/shared/route
 https://github.com/AmitXShukla/Angular-Material/blob/master/src/app/shared/custommaterial/custommaterial.module.ts<br>
 
 <h4>update app.module.ts</h4> to include ElishCustomMaterialModule in IMPORT section <br>
-<span style="color:green">(add to IMPORT section)</span><br>
+<span style="color:green">(add to IMPORT section)</span>
 
 <h4>Now You have all Angular Material dependencies installed.</h4>
 
@@ -81,7 +81,7 @@ At right most side of tool bar, it should include mat-icons for email, settings 
 <b><i> All mat-icons must have a tool tip displayed</i></b><br>
 
 At the bottom of the page, a footer needs to be included.<br>
-This footer will have copyright statement and include all navigation links for SEO rendering.<br>
+This footer will have copyright statement and include all navigation links for SEO rendering.
 
 _________________________
 
@@ -103,7 +103,7 @@ update app.component.html file and include at last<br>
 
 <span style="color:green"> ng serve</span><br>
 
-at this point to make sure, app displays footer statement and is running fine.<br>
+at this point to make sure, app displays footer statement and is running fine.
 
 <h4>add a new header</h4>
 
