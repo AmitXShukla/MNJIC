@@ -28,9 +28,9 @@ if not, please visit
 <span style="color:green">update index.html to reflect new favicon.ico changes</span><br>
 <span style="color:green">update polyfill.json</span><br> - In case of using web animations or if you are planning to support older browser versions.<br>
 <span style="color:green">and in case of adding a polyfill, please make sure to npm install related package for chosen polyfill.</span><br>
-<span style="color:green"><h4>update gitignore file</h4></span><br>
+<span style="color:green"><h4>update gitignore file</h4></span>
 - Please include files/folder which you do not wish to include to Git Repository like < dist > or < node_modules > folder
-OR environment.ts, environment.prod.ts etc<br>
+OR environment.ts, environment.prod.ts etc
 
 <h4>update Angular-cli.json settings </h4>
 <span style="color:green">"prefix": "app" </span><br>
