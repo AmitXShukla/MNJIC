@@ -1,49 +1,43 @@
-<div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade" *ngIf="isLoadingResults || isRateLimitReached">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-    <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
-      MNJIC API rate limit has been reached. It will be reset in one minute.
-    </div>
-  </div>
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Results">
+  </mat-form-field>
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="SESSION_ID">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>YR</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.SESSION_ID}} </mat-cell>
+            </ng-container>
 
-  <mat-table #table [dataSource]="dataSource" class="example-table" matSort matSortActive="ROLLNO" matSortDisableClear matSortDirection="asc">
+            <ng-container matColumnDef="CLS">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Grade</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.CLS}} </mat-cell>
+            </ng-container>
 
-    <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
+            <ng-container matColumnDef="ROLLNO">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Roll#</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor2"> {{row.ROLLNO }} </mat-cell>
+            </ng-container>
 
-    <!-- Number Column -->
-    <ng-container matColumnDef="SESSION_ID">
-      <mat-header-cell *matHeaderCellDef>YR</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.SESSION_ID }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="CLS">
-      <mat-header-cell *matHeaderCellDef>GRADE</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.CLS }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="ROLLNO">
-      <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">
-        #
-      </mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.ROLLNO }}</mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="STD_NM">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.STD_NM }} </mat-cell>
+            </ng-container>
 
-    <ng-container matColumnDef="STD_NM">
-      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.STD_NM }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="FATH_NM">
-      <mat-header-cell *matHeaderCellDef>S/O</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.FATH_NM }}</mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="PERCENT">
-      <mat-header-cell *matHeaderCellDef>%</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.PERCENT }}</mat-cell>
-    </ng-container>
+            <ng-container matColumnDef="FATH_NM">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>S/O</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.FATH_NM }} </mat-cell>
+            </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+            <ng-container matColumnDef="PERCENT">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>%</mat-header-cell>
+                <mat-cell *matCellDef="let row" class="mycolor"> {{row.PERCENT }} </mat-cell>
+            </ng-container>
 
-  <mat-paginator [length]="resultsLength" [pageSize]="30">
-  </mat-paginator>
-</div>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator #paginator
+                [length]="dataSource.filteredData.length"
+                [pageIndex]="0"
+                [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>

@@ -1,14 +1,23 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
       <span class="example-spacer"></span>
-      <mat-icon>reorder</mat-icon>
-    <span>MNJIC</span>
-    <mat-icon>reorder</mat-icon>
+      <mat-icon>dashboard</mat-icon>
+      <span>MNJIC</span>
     <span class="example-spacer"></span>
     <mat-icon class="example-icon" matTooltip="Contact us" [matMenuTriggerFor]="menu">person_add</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
+    <a routerLink="/table-data">
+      <button mat-menu-item>
+        <mat-icon matTooltip="Home">home</mat-icon>
+      </button>
+    </a>
+    <a routerLink="/admin">
+      <button mat-menu-item>
+        <mat-icon matTooltip="Admin">person_pin</mat-icon>
+      </button>
+    </a>
   <a href="https://www.facebook.com/ElishConsulting/" target="_blank">
     <button mat-menu-item>
       <mat-icon matTooltip="connect with FaceBook" svgIcon="facebook"></mat-icon>
@@ -28,61 +37,14 @@
 <!-- display results -->
 
 <mat-card class="example-card">
+  <!--
     <mat-card-header>
       <mat-card-title>Results</mat-card-title>
       <mat-card-subtitle>heading 2</mat-card-subtitle>
     </mat-card-header>
-  
-  <!--
-    <mat-card-content>
-            <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search Results">
-            </mat-form-field>
-                  <mat-table [dataSource]="dataSource" matSort>
-                      <ng-container matColumnDef="SESSION_ID">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>YR</mat-header-cell>
-                          <mat-cell *matCellDef="let row"> {{row.SESSION_ID}} </mat-cell>
-                      </ng-container>
-          
-                      <ng-container matColumnDef="CLS">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>Grade</mat-header-cell>
-                          <mat-cell *matCellDef="let row"> {{row.CLS}} </mat-cell>
-                      </ng-container>
-          
-                      <ng-container matColumnDef="ROLLNO">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>Roll#</mat-header-cell>
-                          <mat-cell *matCellDef="let row" class="mycolor2"> {{row.ROLLNO }} </mat-cell>
-                      </ng-container>
-
-                      <ng-container matColumnDef="STD_NM">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-                          <mat-cell *matCellDef="let row"> {{row.STD_NM }} </mat-cell>
-                      </ng-container>
-
-                      <ng-container matColumnDef="FATH_NM">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>S/O</mat-header-cell>
-                          <mat-cell *matCellDef="let row"> {{row.FATH_NM }} </mat-cell>
-                      </ng-container>
-
-                      <ng-container matColumnDef="PERCENT">
-                          <mat-header-cell *matHeaderCellDef mat-sort-header>%</mat-header-cell>
-                          <mat-cell *matCellDef="let row" class="mycolor"> {{row.PERCENT }} </mat-cell>
-                      </ng-container>
-
-                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-                  </mat-table>
-                  <mat-paginator #paginator
-                          [length]="dataSource.filteredData.length"
-                          [pageIndex]="0"
-                          [pageSize]="5"
-                          [pageSizeOptions]="[5, 10, 25, 100]">
-                  </mat-paginator>
-    </mat-card-content>
-  </mat-card>
--->
+    -->
 <mat-card-content>
-<table-data></table-data> 
+  <router-outlet></router-outlet>
 </mat-card-content>
 </mat-card>
 
