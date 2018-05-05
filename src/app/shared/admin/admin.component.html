@@ -49,29 +49,29 @@
         <mat-icon color="primary" (click)="toggle('resMode');getData();">cached</mat-icon>
       </span>
     </mat-card-actions>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="SESSION ID" name="SESSION_ID" id="SESSION_ID" ngModel required minlength="4">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="ROLL #" name="ROLLNO" id="ROLLNO" ngModel required minlength="2">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="CLASS" name="CLS" id="CLS" ngModel required minlength="1">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="STUDENT NAME" name="STD_NM" id="STD_NM" ngModel required minlength="4">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="S/O" name="FATH_NM" id="FATH_NM" ngModel>
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="% Marks" name="PERCENT" id="PERCENT" ngModel required minlength="1">
-    </mat-input-container>
+    </mat-form-field>
   </div>
   </form>
 </ng-template>
@@ -97,29 +97,29 @@
         <mat-icon color="primary" (click)="toggle('resMode');getData();">cached</mat-icon>
       </span>
     </mat-card-actions>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="SESSION ID" name="SESSION_ID" id="SESSION_ID" [ngModel]="(myDocData | async)?.SESSION_ID" required minlength="4">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="ROLL #" name="ROLLNO" id="ROLLNO" [ngModel]="(myDocData | async)?.ROLLNO" required minlength="2">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="CLASS" name="CLS" id="CLS" [ngModel]="(myDocData | async)?.CLS" required minlength="1">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="STUDENT NAME" name="STD_NM" id="STD_NM" [ngModel]="(myDocData | async)?.STD_NM" required minlength="4">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="S/O" name="FATH_NM" id="FATH_NM" [ngModel]="(myDocData | async)?.FATH_NM">
-    </mat-input-container>
+    </mat-form-field>
     <br>
-    <mat-input-container>
+    <mat-form-field>
       <input matInput placeholder="% Marks" name="PERCENT" id="PERCENT" [ngModel]="(myDocData | async)?.PERCENT" required minlength="1">
-    </mat-input-container>
+    </mat-form-field>
     </div>
   </form>
 </ng-template>
