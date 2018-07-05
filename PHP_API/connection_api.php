@@ -1,4 +1,6 @@
 <?php
+// below access-control-allow-origin allows all domains to access this API
+// this code needs to updated to reflect appropriate domain security.
 header("Access-Control-Allow-Origin: *");
 include('connection.php');
 //error_reporting(0); // turn off sql errors/warnings in production
@@ -12,16 +14,19 @@ $action = isset($_GET["action"]) ? $_GET["action"] : '-';
 
 switch ($action):
     case "v":
+    // read data
         fetchData();
+        break;
+    case "u":  
+    // update data 
+    // make sure your HTML form looks like <form action="your-php-domain/connection_api.php?action=u" method="post">
+        updateData();
         break;
     default:
         echo json_encode($failvalue);
 endswitch;
 
 function fetchData() {
-$postdata = json_decode(file_get_contents("php://input"));
-$oprid = $postdata->userid;
-$oprpswd = $postdata->password;
 $successreturn [] = array("SSAD_ID" => "NULL", "STD_NM" => "NULL");
 $sql  = "SELECT SSAD_ID,SESSION_ID,ROLLNO,STD_NM,FATH_NM,CLS,PERCENT FROM SSBYSRSS";
     $objQuery = mysql_query($sql);
@@ -47,5 +52,17 @@ if($num_rows > 0) {
 }
 }
 
+function updateData() {
+    $postdata = json_decode(file_get_contents("php://input"));
+    $field1 = $postdata->field1;
+    $field2 = $postdata->field2;
+    $successreturn [] = array("SSAD_ID" => "NULL", "STD_NM" => "NULL");
+    $sql  = "INSERT INTO MYSQL_TABLE VALUES('".$field1."','".$field2."')";
+        $objQuery = mysql_query($sql);
+        $value=0;
+    $num_rows = mysql_num_rows($objQuery);
+    $passvalue [] = array("error" => "0","num_rows" => $num_rows, "data" => $successreturn);
+    echo json_encode($passvalue);
+    }
 mysql_close($conn);
 ?>
